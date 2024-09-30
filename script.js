@@ -14,9 +14,8 @@ button.addEventListener('click', () => {
             return response.json();
         })
         .then(data => {
-            const weatherDescription = data.weather[0].main;
             weatherDiv.innerHTML = `<h1>Weather API</h1>
-                                    <p>Current weather in London: ${weatherDescription}</p>
+                                    <p>Current weather in London: ${data.weather[0].main}</p>
                                     <button>Get Current Weather</button>`;
         })
         .catch(error => {
