@@ -3,8 +3,8 @@ const API_KEY = 'dbe88f19b79f55ab6a5298ce9e8f135b';
 const button = document.querySelector('button');
 const weatherDiv = document.getElementById('weatherData');
 
-button.addEventListener('click', () => {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}`;
+function getCurrentWeather(){
+	const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}`;
 
     fetch(apiUrl)
         .then(response => {
@@ -23,4 +23,6 @@ button.addEventListener('click', () => {
                                     <p>Error fetching weather data: ${error.message}</p>
                                     <button>Get Current Weather</button>`;
         });
-});
+}
+
+button.addEventListener('click', getCurrentWeather);
